@@ -2,5 +2,5 @@
 
 ## Contributors
 
-* Richard Krasso
+* Professor Krasso
 * April Yang
