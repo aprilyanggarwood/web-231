@@ -1,21 +1,24 @@
-                                                                            /**
+/**                                                                        /**
     Title: site.css
     Author: April Yang
-    Date: 03/18/2022
+    Date: 03/19/2022
     Description: Styling for the index.html file
- */
+*/
 
+/* Google Font Family
+font-family: 'Oswald', Verdana, Arial, sans-serif; */
 body {
     font-family: 'Oswald',Verdana,Arial,sans-serif;  
 }
 
+/* Add Margins to container ID */
 #container {
     margin-top:50px;
     margin-left:100px;
     margin-right:100px;
 }
 
-
+/* Styling for h1-h4. */
 
 h1,h2,h3,h4 {
     background-color:#3C275A;
@@ -24,6 +27,7 @@ h1,h2,h3,h4 {
     padding:10px;
 }
 
+/* Styling for anchor tags */
 a {
     color:#453674;
     text-decoration: none;
