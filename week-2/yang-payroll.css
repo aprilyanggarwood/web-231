@@ -1,0 +1,17 @@
+/* 
+    Title: yang-payroll.css
+    Author: April Yang
+    Date: 3/26/2022
+    Description: styling for yang-payroll.html.
+*/
+
+/* 
+    Styling for unordered lists with a red, 1 pixel width dotted border.
+*/
+ul {
+    border: dotted 1px red;
+}
+
+#payroll-header {
+    text-align: center;
+}

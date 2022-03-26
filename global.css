@@ -1,10 +1,17 @@
+/**                                                                        /**
+    Title: global.css
+    Author: April Yang
+    Date: 03/26/2022
+    Description: Styling for the assignments of WEB 231.
+*/
+
 /* Styling for return-home class */
 .return-home {
     color:#4F3674;
     text-decoration: none;
 }
 
-/* Styling for Retun anchor */
+/* Styling for Return anchor */
 a:hover {
     background-color:#D6A800;
     color:#4F3674;
