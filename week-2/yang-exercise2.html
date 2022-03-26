@@ -11,22 +11,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- external CSS stylesheet -->
     <link rel="stylesheet" href="../global.css" />
     <title>WEB 231 - Enterprise Javascript I</title>
   </head>
   <body>
     <div id="container">
       <h1>Exercise 2.2 - Hello JavaScript</h1>
+      <!-- btnMyCourse in JavaScript displays the text " What course am I taking?" -->
+      <!--Button that activate alert "WEB 231 - Enterprise JavaScript I" onclick.-->
       <button id="btnMyCourse" onclick="myCourse()"></button>
+      <!-- txtMyWorld in JavaScript displays the text: "You are now in <lastName>'s world!"." -->
       <p id="txtMyWorld"></p>
+      <!-- Return link to the WEB-231 landing page -->
       <a class="return-home" href="../index.html">Return</a>
     </div>
+
+    <!-- JavaScript to the yang-exercise2.html. -->
     <script>
+      // let Declares the lastName variable to the value "Yang".
       let lastName = "Yang";
+      // set up txtMyWorld id to be equal to "You are now in <lastName>'s world!".
       document.getElementById("txtMyWorld").innerHTML =
         "You are now in" + lastName + "'s world!";
+      // set up btnMyCourse id to be equal to "What course am I taking?"
       document.getElementById("btnMyCourse").innerHTML =
         "What course am I taking?";
+      // Function for button onclick to active the window alert "WEB 231 – Enterprise JavaScript I."
       function myCourse() {
         alert("WEB 231 – Enterprise JavaScript I.");
       }
