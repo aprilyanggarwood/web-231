@@ -1,0 +1,35 @@
+<!--
+  Title: Exercise 2.2 – Hello JavaScript 
+  Author: April Yang
+  Date: 03/25/2022
+  Description: index.html for web-231 exercise 2.2
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../global.css" />
+    <title>WEB 231 - Enterprise Javascript I</title>
+  </head>
+  <body>
+    <div id="container">
+      <h1>Exercise 2.2 - Hello JavaScript</h1>
+      <button id="btnMyCourse" onclick="myCourse()"></button>
+      <p id="txtMyWorld"></p>
+      <a class="return-home" href="../index.html">Return</a>
+    </div>
+    <script>
+      let lastName = "Yang";
+      document.getElementById("txtMyWorld").innerHTML =
+        "You are now in" + lastName + "'s world!";
+      document.getElementById("btnMyCourse").innerHTML =
+        "What course am I taking?";
+      function myCourse() {
+        alert("WEB 231 – Enterprise JavaScript I.");
+      }
+    </script>
+  </body>
+</html>
