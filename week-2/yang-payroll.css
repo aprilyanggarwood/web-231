@@ -12,6 +12,7 @@ ul {
     border: dotted 1px red;
 }
 
+/* Styling for centering the payroll-header ID */
 #payroll-header {
     text-align: center;
 }
