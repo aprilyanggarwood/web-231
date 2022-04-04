@@ -63,8 +63,13 @@
         <script>
     // function to convert Fahrenheit to Celsius and display the result on the second card. 
          function temConversion() {
-           let fahrenheit = document.getElementById("txtFahrenheit").value;
+           // After the user clicks the button, the variable fahrenheit gets its value from the input field.   
+            // ".value" for storing the input as a number, not a text.
+           let fahrenheit = document.getElementById("txtFahrenheit").value; 
+           // The variable celsius gets the temperature conversion value of the fahrenheit to celsius from the formula. 
+            // toFixed() converts the the number to a string, rounded to two decimal places.
            let celsius = ((parseFloat(fahrenheit) - 32) / 1.8).toFixed(2);
+           // The conversion result will display in the 'card-content' div.
            document.getElementById("card-content").innerHTML = celsius;
          }
 
