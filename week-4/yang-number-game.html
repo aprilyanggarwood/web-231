@@ -1,8 +1,9 @@
 <!--
-  Title: Assignment 3.2 - Temperature Conversion App
+ Title: Assignment 4.2 - Number Guessing Game
   Author: April Yang
-  Date: 03/31/2022
-  Description: index.html for web-231 Assignment 3.2 Temperature Conversion App
+  Date: 04/08/2022
+  Description: index.html for web-231 Assignment 4.2 Number Guessing Game
+
 -->
 
 <!DOCTYPE html>
@@ -41,6 +42,7 @@
             class="input"
           />
           <div class="form-field">
+            <!-- button for submitting the input number. -->
             <button type="submit" onclick="guessNumber()" class="btn" id="btnSubmit">Submit</button>
           </div>
         </div>
@@ -61,9 +63,14 @@
     <a class="return-home" href="../index.html">Return</a>
     </div>
         <script>
-        const rnd = Math.floor((Math.random() * 10) + 1); // generate a random number between 1 and 10.
+          // The rnd variable is created when the page loads.
+        const rnd = Math.floor((Math.random() * 10) + 1); 
+        // guessNumber function is activation when user onclick the button.
         function guessNumber() {
+          // ".value" for storing the input as a number, not a text.
          let myNumber = document.getElementById("txtMyNumber").value
+         // Condition statement if the input number is greater than, less than, or equal to the rnd variable.
+         // the card-content ID will display a text string when a result return. 
          if(myNumber<rnd) {
            document.getElementById("card-content").innerHTML = "The number is greater than " + myNumber;
          } else if (myNumber>rnd){
