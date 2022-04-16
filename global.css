@@ -5,6 +5,16 @@
     Description: Styling for the assignments of WEB 231.
 */
 
+ /* Styling for dropdown menus. */
+.drop-down-menu{
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+
+}
+
 /* Styling for return-home class */
 .return-home {
     color:#4F3674;
