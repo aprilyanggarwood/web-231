@@ -1,8 +1,8 @@
 /* 
-    Title: yang-temp-conversion.css
+    Title: yang-sequence-game.css
     Author: April Yang
-    Date: 3/31/2022
-    Description: styling for yang-temp-conversion.html.
+    Date: 4/16/2022
+    Description: styling for yang-sequence-game.html.
 */
 
 /* use google fonts Oswald to style body text. */
@@ -81,8 +81,6 @@ margin-left: 310px;
 /* display the conversion result in the center of the card. */
 #card-content {
 text-align: center;
-
-
 
 }
 

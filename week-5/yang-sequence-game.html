@@ -1,8 +1,8 @@
 <!--
-  Title: Assignment 3.2 - Temperature Conversion App
+  Title: Assignment 5.2 - Sequence Game
   Author: April Yang
-  Date: 03/31/2022
-  Description: index.html for web-231 Assignment 3.2 Temperature Conversion App
+  Date: 04/16/2022
+  Description: index.html for web-231 Assignment 5.2 Sequence Game
 -->
 
 <!DOCTYPE html>
@@ -28,7 +28,7 @@
   <body>
     <div id="container">
       <h1 class="app-header">Welcome to the sequence game!</h1>
-<!-- the first card contains a form for fahrenheit input and a button for conversion.   -->
+<!-- the first card contains a selection form for selecting the drop down options and a button for displaying sequence results.   -->
 <div class="card">
   <div class="card-container">
     <h2 class="card-title">Sequence Selection Form</h2>
@@ -48,7 +48,7 @@
   </div>
   <!-- give space between two cards by div-->
 <div class="break"></div>
-<!-- the second card for displaying the conversion result.   -->
+<!-- the second card for displaying sequence results.   -->
       <div class="card">
           <div class="card-container">
         <h2 class="card-title">Sequence Results</h2>
@@ -61,12 +61,16 @@
     <a class="return-home" href="../index.html">Return</a>
     </div>
         <script>
-    // function to convert Fahrenheit to Celsius and display the result on the second card. 
-         function numSequence() {
+    // Onclick function will display a sequence result based on the option the user chooses.
+    // If,else,else if statement, while, do-while, and for loops are used to produce different sequence results. 
+    function numSequence() {
            let choice = document.getElementById("sequence").value;
            if (choice ==="select") {
+             //Alert will be popped up in the window when onclick with no option is selected.
              alert("Invalid selection, please try again!")
-           } else if (choice === "fibonacci"){
+           } // If fibonacci is selected, the while loop will build a string value of all fibonacci numbers that are less than 40.
+           else if (choice === "fibonacci"){ 
+             // Fibonacci sequence numbers start at 0.
              let num1 = 0, num2 = 1, next;
              let fibonacciSequenceText = "";
              while (num1<40) {
@@ -76,29 +80,40 @@
              num2 = next;
 
              }
+              // The output will be 0, 1, 1, 2, 3, 5, 8, 13, 21, 34 
+              // slice(0, -2) will remove the last two characters of the string.
              document.getElementById("card-content").innerHTML = fibonacciSequenceText.slice(0,-2);
              
-           } else if (choice === "even") {
+           } 
+            // If even is selected, the do…while loop will build a string of even numbers that are less than 20. 
+           else if (choice === "even") {
+             // Even sequence numbers start at 2.
              let evenSequenceText = "";
              let num1 = 2;
              let next;
              do {
-               evenSequenceText += num1 + ",";
-               next = num1 + 2;
+                evenSequenceText += num1 + ", ";
+                next = num1 + 2;
                 num1 = next;
                 console.log("The even Sequence is "+ evenSequenceText);  
 
              } while (num1<20)
+            // The output will be 2, 4, 6, 8, 10, 12, 14, 16, 18 
+              // slice(0, -2) will remove the last two characters of the string.
+             document.getElementById("card-content").innerHTML = evenSequenceText.slice(0, -2);
 
-             document.getElementById("card-content").innerHTML = evenSequenceText.slice(0, -1);
-
-           } else if (choice === "odd"){
+           } 
+           // If odd is selected, the for loop will build a string of odd numbers that are less than 20.
+           else if (choice === "odd"){
+             // Odd sequence numbers start at 1.
              let oddSequenceText = "";
              for(let num=1; num<20; num+=2){
-               oddSequenceText += num + ",";    
+               oddSequenceText += num + ", ";    
                console.log("The Odd Sequence is "+ oddSequenceText);  
              }
-             document.getElementById("card-content").innerHTML = oddSequenceText.slice(0,-1);
+             // The output will be 1, 3, 5, 7, 9, 11, 13, 15, 17, 19 
+              // slice(0, -2) will remove the last two characters of the string.
+             document.getElementById("card-content").innerHTML = oddSequenceText.slice(0,-2);
 
            }
            
