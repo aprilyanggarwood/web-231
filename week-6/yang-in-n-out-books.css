@@ -85,6 +85,7 @@ text-align: center;
 
 }
 
+/* styling table */
 table {
   border-collapse: collapse;
   width: 100%;
@@ -97,12 +98,12 @@ th {
   background-color: #4f3674;
   color: white;
 }
+
 td {
   padding: 5px;
 }
 
-td,
-th {
+td, th {
   border: 1px solid #ddd;
 }
 

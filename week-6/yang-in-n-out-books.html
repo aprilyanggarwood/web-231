@@ -28,7 +28,7 @@
   <body>
     <div id="container">
       <h1 class="app-header">Welcome to In-N-Out-Books</h1>
-      <!-- the first card contains a selection form for selecting the drop down options and a button for displaying sequence results.   -->
+      <!-- the first card contains a selection form for selecting the drop down options and a button for displaying the listed books or authors.   -->
       <div class="card">
         <div class="card-container">
           <h2 class="card-title">My Favorites</h2>
@@ -54,19 +54,17 @@
       </div>
       <!-- give space between two cards by div-->
       <div class="break"></div>
-      <!-- the second card for displaying sequence results.   -->
-
+      <!-- the second card for hiding or displaying the listed books or authors.   -->
       <div id="card">
         <div id="favorite-books" class="card"></div>
         <div id="favorite-authors" class="card"></div>
       </div>
-      <!-- End Form Results Container -->
-      <!-- </div> -->
       <div class="break"></div>
       <!-- Return link back to the WEB-231 landing page -->
       <a class="return-home" href="../index.html">Return</a>
     </div>
     <script>
+      // Build favorite books data in JavaScript object.
       let book1 = {
         isbn: "1408855895",
         title: "Harry Potter and the Philosopher's Stone",
@@ -83,6 +81,7 @@
         pages: "400",
       };
 
+      // Build favorite authors data in JavaScript object.
       let author1 = {
         name: "J. K. Rowling",
         genre: "Fantasy",
@@ -96,13 +95,15 @@
         genre: "Drama",
       };
 
+      // Declares the books and authors variables by IDs.
       let books = document.getElementById("favorite-books");
       let authors = document.getElementById("favorite-authors");
 
-      //Initial State to display none
+      // Set the books and authors table default to hidden
       books.style.display = "none";
       authors.style.display = "none";
 
+      // Function to hide or display books or authors table in the second card based on user choice , or show nothing if user choose '--select--'.
       function displayListing() {
         let choice = document.getElementById("favoriteList").value;
         console.log("choice");
