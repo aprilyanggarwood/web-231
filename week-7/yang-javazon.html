@@ -28,7 +28,7 @@
   <body>
     <div id="container">
       <h1 class="app-header">Welcome to the Javazon App!</h1>
-      <!-- the first card contains a selection form for selecting the drop down options and a button for displaying the listed books or authors.   -->
+      <!-- the first card contains a selection form for selecting the drop down options and a button for clicking on to trigger the function.   -->
       <div class="card">
         <div class="card-container">
           <h2 class="card-title">Javazon Selection Form</h2>
@@ -55,7 +55,7 @@
       </div>
       <!-- give space between two cards by div-->
       <div class="break"></div>
-      <!-- the second card for hiding or displaying the listed books or authors.   -->
+      <!-- the second card for hiding or displaying the selection form with listed products, services, or employees.   -->
       <div id="card">
         <div id="javazon-results" class="card"></div>
       </div>
@@ -100,41 +100,41 @@
       }
 
       //   Initialize Products
-      let product1 = new Product(900000, "HTML and CSS", 22.26, 10);
-      console.log("product1");
+      let product1 = new Product(900000, "Dog Food", 8.39, 50);
+      console.log(product1);
 
-      let product2 = new Product(900001, "HTML and CSS", 22.26, 10);
+      let product2 = new Product(900001, "Dog Treat", 5.33, 50);
 
-      let product3 = new Product(900002, "HTML and CSS", 22.26, 10);
+      let product3 = new Product(900002, "Dog Toy", 12.59, 25);
 
-      let product4 = new Product(900003, "HTML and CSS", 22.26, 10);
+      let product4 = new Product(900003, "Cat Food", 7.89, 40);
 
-      let product5 = new Product(900004, "HTML and CSS", 22.26, 10);
+      let product5 = new Product(900004, "Cat Toy", 8.99, 15);
 
       //   Initialize Services
+      let service1 = new Service(100, "Dog Grooming", 40, 1);
 
-      let service1 = new Service(100, "Website Design", 150, 25);
+      let service2 = new Service(101, "Dog Training", 60, 2);
 
-      let service2 = new Service(101, "Website Design", 150, 25);
-
-      let service3 = new Service(100, "Website Design", 150, 25);
+      let service3 = new Service(100, "Dog Boarding", 55, 2);
 
       //Initialize Employees
-      let employee1 = new Employee(1000, "Beethoven", "Ludwig", 13.99);
+      let employee1 = new Employee(1000, "Yang", "Jenny", 15.5);
 
-      let employee2 = new Employee(1001, "Beethoven", "Ludwig", 13.99);
+      let employee2 = new Employee(1001, "Lee", "Tian", 15.5);
 
-      let employee3 = new Employee(1002, "Beethoven", "Ludwig", 13.99);
+      let employee3 = new Employee(1002, "Wong", "Xuanqi", 16.75);
 
-      let employee4 = new Employee(1003, "Beethoven", "Ludwig", 13.99);
+      let employee4 = new Employee(1003, "Zeng", "Juxuan", 20.5);
 
-      let employee5 = new Employee(1004, "Beethoven", "Ludwig", 13.99);
-
+      let employee5 = new Employee(1004, "Ding", "linan", 25.5);
+      // Displaying the selection result in the second card.
       let javaResult = document.getElementById("javazon-results");
-
+      //
       function displayListing() {
-        let choice = document.getElementById("listing").value;
+        let choice = document.getElementById("listing").value; // grab the options' value.
         console.log(choice);
+        // If one option is selected, it will be displayed in the html table, otherwise the option will be hidden when it is not be selected.
         switch (choice) {
           case "products":
             javaResult.innerHTML = `<div class="card-title">Javazon Products</div>
@@ -266,7 +266,7 @@
             javaResult.style.display = "block";
             break;
           default:
-            javaResult.style.display = "none";
+            javaResult.style.display = "none"; // No table is displayed in default before selecting an option.
         }
       }
     </script>
