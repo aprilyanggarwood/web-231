@@ -28,7 +28,7 @@
   <body>
     <div id="container">
       <h1 class="app-header">Welcome to the Alphabet Game!</h1>
-      <!-- the first card contains a selection form for selecting the drop down options and a button for clicking on to trigger the function.   -->
+      <!-- the first card contains a input form for enter numbers.   -->
       <div class="card">
         <div class="card-container">
           <h2 class="card-title">Alphabet Number Form</h2>
@@ -41,14 +41,6 @@
             class="input"
           />
             <div class="form-field">
-            <!--  <button
-                type="submit"
-                onclick="btnFindLetter()"
-                class="btn"
-                id="btnFindLetter"
-              >
-                Find Letter
-              </button>-->
               <button
               type="submit"
               class="btn"
@@ -62,13 +54,14 @@
       </div>
       <!-- give space between two cards by div-->
       <div class="break"></div>
-      <!-- the second card for hiding or displaying the selection form with listed products, services, or employees.   -->
+      <!-- the second card for displaying a string with Alphabet   -->
       <div id="card">
         <div id="javazon-results" class="card"></div>
       </div>
       <div class="break"></div>
       <!-- Return link back to the WEB-231 landing page -->
       <a class="return-home" href="../index.html">Return</a>
+      <!-- the third card for displaying a string with the content of letter's position.   -->
       <div id="form-results">
         <div class="card">
           <div class="card-title">Letters in the Alphabet</div>
@@ -90,12 +83,15 @@
      
 
     <script>
+      // Register an onclick event for ID btnFindLetter.
       window.onload = onloadFunc;
       function onloadFunc() {
         //alert('onload');
-        let btnEl = document.getElementById('btnFindLetter');
-        btnEl.addEventListener('click', btnFindLetter);
+        let btnEl = document.getElementById("btnFindLetter");
+        btnEl.addEventListener("click", btnFindLetter);
       }
+
+     // Creates the alphabet array.
       const alphabet = [ "A", "B", "C", "D", 
                             "E", "F", "G", "H", 
                             "I", "J", "K", "L", 
@@ -103,48 +99,46 @@
                             "Q", "R", "S", "T", 
                             "U", "V", "W", "X", 
                             "Y", "Z" ];
-      let alphabetOutput = "";
-      let alphabetHash = [];
+            console.log(alphabet);
 
+      // const alphabet = [..."ABCDEFGJIJKLMNOPQRSTUVWXYZ"]; // Array spread
+      //    console.log(alphabet);
+      // let alphabetOutput = "";
+
+       // The for/in loop builds a string from the alphabet array and display the string in the div with id alphabet-output.
       for ( let letterAlphabet in alphabet ) {
         console.log(letterAlphabet)
         alphabetOutput += alphabet[letterAlphabet]+ ", ";
-        let currentLetter = alphabet[letterAlphabet];
-
-        alphabetHash[currentLetter] = letterAlphabet;
-        console.log(alphabetHash);
+        
       }
-
+       document.getElementById("alphabet-output").innerHTML = alphabetOutput.slice(0, -2);
+       
+      // use for of loop to get same solution 
       // for ( let letterAlphabet of alphabet ) {
       //   console.log(letterAlphabet)
       //   alphabetOutput += letterAlphabet + ", ";
         
       // }
 
-
-      document.getElementById("alphabet-output").innerHTML = alphabetOutput.slice(0, -2);
-      var pos;
+     // onclick function to find the letter position and display the result in the dive with id results-output.
       function btnFindLetter() {
-
-         pos = document.getElementById("txtPosition").value; 
+          // variable pos to declare the user inputted number.
+       let  pos = document.getElementById("txtPosition").value; 
          console.log(pos);
          console.log(alphabet[pos]);
          pos = parseInt(pos);
         console.log(pos);
         let resultEl = document.getElementById('results-output');
         console.log(pos);
-        let newIndex = pos - 1;
+        // set the letter position from index 1, expected output: A is at position 1 in the alphabet.
+        let letterIndex = alphabet[pos - 1];
         console.log(pos);
-        let resultText = '';
-        if (alphabet[newIndex] == undefined) {
-          resultText = 'There are not ' + pos + ' letters in the alphabet';
+        if (letterIndex == undefined) {
+          resultEl.innerHTML = "There are not " + pos + " letters in the alphabet";
         } else {
-          resultText = alphabet[newIndex];
+          resultEl.innerHTML = letterIndex + " is at position " + pos + " in the alphabet.";
 
         }
-        resultEl.innerHTML = resultText + ' is at position ' + pos + ' in the alphabet.';
-       
-
       }
 
      
