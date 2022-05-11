@@ -1,0 +1,270 @@
+<!--
+  Title: Assignment 9.2 - Final: card game
+  Author: April Yang
+  Date: 05/10/2022
+  Description: index.html for web-231 Assignment 9.2 Final: card game
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width,
+    , initial-scale=1.0"
+    />
+    <!-- external CSS stylesheet -->
+    <link rel="stylesheet" href="yang-card-game.css" />
+    <link rel="stylesheet" href="../global.css" />
+    <!-- Google fonts for Oswald -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link to Material Design Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/@mdi/font@6.5.95/css/materialdesignicons.min.css"
+      rel="stylesheet"
+    />
+    <title>WEB 231 - Enterprise Javascript I</title>
+  </head>
+  <body>
+    <div id="container">
+      <h1 class="app-header">Welcome to the Card Game!</h1>
+      <!-- the first card contains a input form for enter numbers.   -->
+      <div class="card">
+        <div class="card-container">
+          <h2 class="card-title">Card Dealer</h2>
+          <button type="submit" class="btn full-width" id="btnDealCards">
+            Deal Cards
+          </button>
+        </div>
+      </div>
+
+      <!-- give space between two cards by div-->
+      <div class="break"></div>
+
+      <!-- Return link back to the WEB-231 landing page -->
+      <a class="return-home" href="../index.html">Return</a>
+      <!-- the third card for displaying a string with the content of letter's position.   -->
+      <div class="break"></div>
+      <!-- Shuffled Card Container -->
+      <div id="form-results">
+        <div class="card">
+          <div
+            class="card-content"
+            style="font-size: 28px; padding-bottom: 25px"
+          >
+            <div class="card-title card-shuffled">Shuffled Cards</div>
+            <div id="player-card-container"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      class Card {
+        // ONLY for individual cards; Dealer class does everything for "deck"
+        constructor(face, suit) {
+          this.face = face;
+          this.suit = suit;
+          /*           this.CARD_COUNT = 52;
+          this.cards = [];
+          this.faces = [
+            "A",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "J",
+            "Q",
+            "K",
+          ];
+          this.suits = ["Hearts", "Diamonds", "Clubs", "Spades"]; 
+          if(this.cards.length < 1) {
+            this.getDeckOfCards();
+          }*/
+        }
+        /*
+        getDeckOfCards() {
+          // creates the this.cards[] array
+          for (let i = 0; i < this.CARD_COUNT; i++) {
+            // Note: doc wants this.CARD_COUNT
+            let count = i;
+            this.cards[count] = new Card( // this should NOT be creating a new object, but ADDING a new card to cards ...
+              // you could have an add_card() method in this class.
+              this.faces[count % 13],
+              this.suits[Math.floor(count / 13)]
+            );
+          }
+        } 
+        
+        shuffle() {
+
+
+          for (let i = 0; i < this.CARD_COUNT; i++) {
+            // i = current card index;
+            // professor calls this "first card" in docs
+            let secondCard = Math.floor(Math.random() * this.CARD_COUNT);
+            let tempCard = this.cards[i];
+            this.cards[i] = secondCard;
+            this.cards[secondCard] = tempCard;
+          }
+        } 
+        buildPlayingCard(card, suitIcon, faceColor, suitColor) {
+          // doc page 5 : Additional Programming Assistance
+          // note: this also creates output HTML for DISPLAY 
+          // view; browser output; display [ sometimes means only for ONE item, but sometimes for MORE ]
+          let htmlString =
+            '<div class="card player-card"><div class="card-title><div class="card-content"><span>';
+              htmlString += suitIcon + '-' + faceColor + '-' + suitColor + '</span></div></div></div>';
+          return htmlString;
+        }*/
+      }
+
+      class Dealer {
+        constructor() {
+          this.CARD_COUNT = 52;
+          this.cards = [];
+          this.faces = [
+            "A",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "J",
+            "Q",
+            "K",
+          ];
+          this.suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
+          this.getDeckOfCards();
+          //let card = new Card();
+          //let cards = card.cards;
+        }
+        getDeckOfCards() {
+          // creates the this.cards[] array
+          for (let i = 0; i < this.CARD_COUNT; i++) {
+            // Note: doc wants this.CARD_COUNT
+            let count = i;
+            this.cards[count] = new Card( // this should NOT be creating a new object, but ADDING a new card to cards ...
+              // you could have an add_card() method in this class.
+              this.faces[count % 13],
+              this.suits[Math.floor(count / 13)]
+            );
+          }
+        }
+
+        shuffle() {
+          for (let i = 0; i < this.CARD_COUNT; i++) {
+            // i = current card index;
+            // professor calls this "first card" in docs
+            let secondCard = Math.floor(Math.random() * this.CARD_COUNT);
+            let tempCard = this.cards[i];
+            this.cards[i] = secondCard;
+            this.cards[secondCard] = tempCard;
+          }
+        }
+      }
+
+      function buildPlayingCard(card, suitIcon, faceColor, suitColor) {
+        // doc page 5 : Additional Programming Assistance
+        // note: this also creates output HTML for DISPLAY
+        // view; browser output; display [ sometimes means only for ONE item, but sometimes for MORE ]
+        let htmlString =
+          '<div class="card player-card"><div class="card-title><div class="card-content"><span>';
+        htmlString +=
+          suitIcon +
+          "-" +
+          faceColor +
+          "-" +
+          suitColor +
+          "</span></div></div></div>";
+        return htmlString;
+      }
+
+      let btnEl = document.getElementById("btnDealCards");
+      btnEl.addEventListener("click", clickForCards);
+
+      function clickForCards() {
+        //alert('137');
+        let dealer = new Dealer(); // Create a new Dealer object.
+
+        /* doc page 6: Using a for/of loop, i
+       terate over the cards array (hint: dealer.cards) and
+       use a switch expression on the suit (hint: card.suit)
+       to compare the suit against the string values: Hearts, Diamonds, Clubs, Spades.
+       */
+        let cardOutputWithIcon = "";
+        for (card of dealer.cards) {
+          switch (card.suit) {
+            case "Hearts": // Exhibit C. function call for hearts
+              cardOutputWithIcon += buildPlayingCard(
+                card,
+                "mdi mdi-heart",
+                "red",
+                "red"
+              );
+              break;
+
+            case "Diamonds":
+              cardOutputWithIcon += buildPlayingCard(
+                card,
+                "mdi, mdi-cards-diamonds",
+                "red",
+                "red"
+              );
+              break;
+
+            case "Clubs":
+              cardOutputWithIcon += buildPlayingCard(
+                card,
+                "mdi mid-cards-club",
+                "black",
+                "black"
+              );
+              break;
+
+            case "Spades":
+              cardOutputWithIcon += buildPlayingCard(
+                card,
+                "mdi mid-card-spade",
+                "black",
+                "black"
+              );
+              break;
+          }
+        }
+        // TODO: not shuffling AND not displaying number or face
+        document.getElementById("player-card-container").innerHTML =
+          cardOutputWithIcon;
+      }
+
+      /*
+              let CARD_COUNT = 52;
+
+              let cards = [];
+              let faces = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+              let suits = ["Hearts", "Diamonds", "Clubs", "Spades"];
+
+              function getDeckOfCards(){
+                  for(let i = 0; i < CARD_COUNT; i++) { // Note: doc wants this.CARD_COUNT
+                      let count = i;
+                      this.cards[count] = new Card(this.faces[count % 13], this.suits[Math.floor(count / 13)]);)
+                  }
+              }
+      */
+    </script>
+  </body>
+</html>
