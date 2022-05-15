@@ -138,11 +138,8 @@ tr:hover {
 
 }
 
-.player-card {
-  text-align: center !important;
 
-}
-
+/* Use grid to design the layout of cards output  */
 #player-card-container {
   display: grid;
   grid-template-columns: auto auto auto auto;
@@ -150,7 +147,3 @@ tr:hover {
  
 }
 
-.card-content {
-    text-align: center;
-
-}
